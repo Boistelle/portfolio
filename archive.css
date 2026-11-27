@@ -1,0 +1,401 @@
+
+/* =====================================
+   ARCHIVE — GLOBAL
+===================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050505;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  mix-blend-mode: difference;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+header a:hover {
+  color: #00ff00;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* =====================================
+   INTRO / TITLE
+===================================== */
+
+.archive-intro {
+  position: relative;
+  padding: 150px 4vw 50px;
+  overflow: hidden;
+}
+
+.archive-intro h1,
+.archive-intro .title {
+  font-size: clamp(55px, 13vw, 190px);
+  line-height: 0.82;
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  text-transform: uppercase;
+  animation: titleReveal 1.2s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.archive-intro h1 span,
+.archive-intro .title span {
+  color: #00ff00;
+}
+
+.archive-intro p {
+  margin-top: 35px;
+  max-width: 400px;
+  font-size: clamp(12px, 1.2vw, 15px);
+  line-height: 1.5;
+  color: #888;
+  animation: textReveal 1s ease 0.4s both;
+}
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================
+   ARCHIVE AREA
+===================================== */
+
+#archiveArea {
+  position: relative;
+  width: 100%;
+  min-height: 110vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#photoLayer {
+  position: relative;
+  width: 100%;
+  min-height: 110vh;
+}
+
+/* =====================================
+   FLOATING IMAGES
+===================================== */
+
+.photo {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  box-shadow: none;
+  cursor: grab;
+  overflow: visible;
+  transform-origin: center;
+  will-change: transform;
+  animation: float 6s ease-in-out infinite;
+  transition: filter 0.4s ease;
+  touch-action: none;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  pointer-events: none;
+  transform-origin: center;
+  animation: wiggle 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.photo:hover {
+  filter: brightness(1.15);
+  z-index: 999 !important;
+}
+
+.photo:active {
+  cursor: grabbing;
+}
+
+/* Floating movement */
+
+@keyframes float {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -18px;
+  }
+}
+
+/* Independent wiggle */
+
+@keyframes wiggle {
+  0%, 100% {
+    rotate: -1.5deg;
+  }
+  50% {
+    rotate: 1.5deg;
+  }
+}
+
+/* =====================================
+   IMAGE VIEWER
+===================================== */
+
+#imageViewer {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.96);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5vw;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  backdrop-filter: blur(15px);
+}
+
+#imageViewer.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#viewerImage {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border: none;
+  box-shadow: none;
+  animation: viewerReveal 0.5s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+@keyframes viewerReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#viewerClose {
+  position: absolute;
+  top: 25px;
+  right: 4vw;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#viewerClose:hover {
+  color: #00ff00;
+  transform: rotate(90deg);
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+  padding: 50px 4vw 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #777;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #00ff00;
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 900px) {
+  .archive-intro {
+    padding-top: 130px;
+  }
+
+  #archiveArea,
+  #photoLayer {
+    min-height: 100vh;
+  }
+
+  .photo {
+    max-width: 35vw;
+  }
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+  header {
+    padding: 20px 5vw;
+  }
+
+  header a {
+    font-size: 11px;
+  }
+
+  .archive-intro {
+    padding: 120px 5vw 35px;
+  }
+
+  .archive-intro h1,
+  .archive-intro .title {
+    font-size: clamp(52px, 16vw, 100px);
+    letter-spacing: -0.08em;
+  }
+
+  .archive-intro p {
+    margin-top: 22px;
+    max-width: 280px;
+    font-size: 12px;
+  }
+
+  #archiveArea,
+  #photoLayer {
+    min-height: 120vh;
+  }
+
+  .photo {
+    max-width: 48vw;
+  }
+
+  .photo img {
+    width: 100%;
+  }
+
+  #imageViewer {
+    padding: 15px;
+  }
+
+  #viewerImage {
+    max-width: 94vw;
+    max-height: 80vh;
+  }
+
+  #viewerClose {
+    top: 15px;
+    right: 5vw;
+    font-size: 30px;
+  }
+
+  footer {
+    padding: 35px 5vw 25px;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 10px;
+  }
+}
+
+/* =====================================
+   REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.photo {
+    touch-action: none;
+    user-select: none;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    pointer-events: none;
+}

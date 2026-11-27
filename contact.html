@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">JACQUES BOISTELLE<span>®</span></a>
+        <span class="header-info">CONTACT — 2026</span>
+    </header>
+
+    <main class="contact-page">
+        <section class="contact-content">
+            <p class="eyebrow">LET'S WORK TOGETHER</p>
+            <h1>HAVE A<br>PROJECT<span>?</span></h1>
+            <p class="contact-intro">
+                AVAILABLE FOR FREELANCE MISSIONS, STUDIO COLLABORATIONS & CREATIVE PROJECTS.
+            </p>
+
+            <form
+                class="contact-form"
+                action="https://formspree.io/f/mnpdrrez"
+                method="POST"
+            >
+                <label for="name">NAME</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                >
+
+                <label for="email">EMAIL</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    required
+                >
+
+                <label for="subject">SUBJECT</label>
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="What are you working on?"
+                    required
+                >
+
+                <label for="message">MESSAGE</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Tell me about your project..."
+                    required
+                ></textarea>
+
+                <button class="showreel-button" type="submit">
+                    SEND MESSAGE <span>↗</span>
+                </button>
+            </form>
+
+            <a class="back-link" href="index.html">← BACK TO PORTFOLIO</a>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Archive 2D / Motion</title>
+
+    <!-- Même CSS que l'archive 3D -->
+    <link rel="stylesheet" href="archive.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">JACQUES BOISTELLE<span>®</span></a>
+        <span class="header-info">PORTFOLIO — 2026</span>
+    </header>
+
+    <main>
+        <section class="archive-intro">
+            <h1>ARCHIVE <span>2D.</span></h1>
+            <p>2D ANIMATION · MOTION EXPERIMENTS · GIFS</p>
+        </section>
+
+        <!-- Zone des animations flottantes -->
+        <section id="archiveArea">
+            <div id="photoLayer"></div>
+        </section>
+
+        <footer>
+            <a href="index.html">← BACK TO PORTFOLIO</a>
+            <span>ARCHIVE 02 — 2D / MOTION</span>
+        </footer>
+
+    </main>
+
+    <!-- Agrandissement au clic -->
+    <div id="imageViewer">
+        <button id="viewerClose" aria-label="Close viewer">✕</button>
+        <img id="viewerImage" src="" alt="Animation agrandie">
+    </div>
+
+    <!-- Script dédié à l'archive 2D -->
+    <script src="archive2D.js"></script>
+
+</body>
+</html>

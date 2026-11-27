@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio — Motion Designer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="#" class="logo">JACQUES BOISTELLE<span>®</span></a>
+        <span class="header-info">PORTFOLIO — 2026</span>
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+            <!-- SCÈNE 3D -->
+            <div id="objectsScene"></div>
+
+            <!-- TITRE + SOUS-TITRE + BOUTONS -->
+            <div class="hero-text">
+
+                <p class="eyebrow">CREATIVE PORTFOLIO</p>
+
+                <h1>
+                    <span id="line1"></span><br>
+                    <span id="line2"></span><span class="title-dot">.</span>
+                </h1>
+
+                <p class="subtitle">
+                    MOTION DESIGN · ART DIRECTION · VISUAL EXPERIMENTS
+                </p>
+
+                <!-- NAVIGATION -->
+                <div class="hero-buttons">
+
+                    <button class="showreel-button" id="openShowreel">
+                        SHOWREEL <span>↗</span>
+                    </button>
+
+                    <a href="archive.html" class="showreel-button archive-button">
+                        ARCHIVE 3D <span>↗</span>
+                    </a>
+
+                    <a href="archive2D.html" class="showreel-button archive-button">
+                        ARCHIVE 2D <span>↗</span>
+                    </a>
+
+                    <a href="contact.html" class="showreel-button contact-button">
+                        CONTACT <span>↗</span>
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/scottyj.lawson/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="showreel-button resume-button"
+                    >
+                        INSTAGRAM <span>↗</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <div class="hero-footer">
+                <span>BASED IN BELGIUM AND FRANCE</span>
+                <span>SCROLL TO EXPLORE ↓</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- VIMEO MODAL -->
+    <div class="video-modal" id="videoModal">
+
+        <button class="close-modal" id="closeModal">
+            ✕
+        </button>
+
+        <div class="video-container">
+            <iframe
+                id="vimeoPlayer"
+                src=""
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+
+    <!-- LIBRAIRIES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+
+    <!-- TON SCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
