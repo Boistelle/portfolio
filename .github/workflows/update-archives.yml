@@ -1,0 +1,40 @@
+name: Update image archives
+
+on:
+  push:
+    paths:
+      - 'ImgArchive/**'
+      - 'ImgGif/**'
+      - 'generate_images.py'
+      - 'generate_gif.py'
+      - '.github/workflows/update-archives.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate image lists
+        run: |
+          python generate_images.py
+          python generate_gif.py
+
+      - name: Save updated lists
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images.json imagesgif.json
+          git diff --cached --quiet || git commit -m "Update image archives"
+          git push
